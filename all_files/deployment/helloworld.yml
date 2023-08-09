@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gowebserver-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gowebserver
+  template:
+    metadata:
+      labels:
+        app: gowebserver
+    spec:
+      containers:
+      - name: gowebserver-container
+        image: maxizapata/gowebserver-arm64
+        ports:
+        - name: webserver-port
+          containerPort: 8080
+      nodeSelector:
+        kubernetes.io/hostname: r4-worker1
+      

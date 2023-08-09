@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gowebserver.example.com
+  labels:
+    app: gowebserver
+spec:
+  containers:
+  - name: gowebserver-container
+    image: maxizapata/gowebserver-arm64
+    ports:
+    - name: webserver-port
+      containerPort: 8080
